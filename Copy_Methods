@@ -1,12 +1,26 @@
-1. CSV Format (Most Common)   --> (this is the get the report of the query)
+\copy → copy
+(executed query )
+to → to
+'pth of copy file'
+DELIMITER ',' → delimiter comma
+csv → C S V
+HEADER → header
+------------------------------------------------------------------------------------------------------------------------------------------------
+===> there are three types of copy formate 1. CSV formate, 2. TEXT formate, 3. binary formate.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CSV Format (Most Common) 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+--> (this is the get the report of the query)
 Exports data as comma-separated values.
 /copy (select * from tables) to 'path/csv' DELIMITER ',' csv HEADER;
 Use case: Excel, data sharing, reporting
 
 
-2. In case after getting the report then the table is recovery . but the structure should present 
-\copy (select * from econnect_album_photos) FROM '/var/lib/pgsql/Copy_type_psql/csv_formate.csv' DELIMITER ','  csv HEADER;
-to get back the data by using this 
+===>It imports data from a CSV file into an existing table (this query get the data of the table but table structure must be present in database otherwise it will wont gete the data)
+It imports data from a CSV file into an existing table.
+\copy econnect_album_photos FROM '/var/lib/pgsql/Copy_type_psql/csv_formate.csv' DELIMITER ',' csv HEADER;
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
