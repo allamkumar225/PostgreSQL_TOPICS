@@ -11,27 +11,56 @@ HEADER → header
 CSV Format (Most Common) 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 --> (this is the get the report of the query)
+RECOMMENDED DEFENATION:-
 Exports data as comma-separated values.
 /copy (select * from tables) to 'path/csv' DELIMITER ',' csv HEADER;
 Use case: Excel, data sharing, reporting
 
 
-===>It imports data from a CSV file into an existing table (this query get the data of the table but table structure must be present in database otherwise it will wont gete the data)
-It imports data from a CSV file into an existing table.
-\copy econnect_album_photos FROM '/var/lib/pgsql/Copy_type_psql/csv_formate.csv' DELIMITER ',' csv HEADER;
+===>It imports data from a CSV file into an existing table 
+    \copy econnect_album_photos FROM '/var/lib/pgsql/Copy_type_psql/csv_formate.csv' DELIMITER ',' csv HEADER;
  
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-to copy from databse to linux terminal by using csv(common separete value) method
-
-<-recommended definataion-> This command exports the result of a query into a CSV file.
+ RECOMMENDED DEFENATION
+This command exports the result of a query into a CSV file.
 \copy (select * from econnect_album_photos) to '/var/lib/pgsql/copy.csv' DELIMITER ',' csv HEADER;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Text formate:-
+--------------
+it extract the data in txt file
+/copy (query ) to 'path/text_formate.txt' DELIMITER '|';
+it import the data from text file but the condition is if existing table structure.
+\copy <table_name> from 'path from file/text_formate.txt' DELIMITER '|';
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Binary formate:-
+---------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
