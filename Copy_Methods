@@ -1,7 +1,12 @@
-1. CSV Format (Most Common)
+1. CSV Format (Most Common)   --> (this is the get the report of the query)
 Exports data as comma-separated values.
 /copy (select * from tables) to 'path/csv' DELIMITER ',' csv HEADER;
 Use case: Excel, data sharing, reporting
+
+
+2. In case after getting the report then the table is recovery . but the structure should present 
+\copy (select * from econnect_album_photos) FROM '/var/lib/pgsql/Copy_type_psql/csv_formate.csv' DELIMITER ','  csv HEADER;
+to get back the data by using this 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
