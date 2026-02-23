@@ -38,9 +38,10 @@ This command exports the result of a query into a CSV file.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Text formate:-
 --------------
-it extract the data in txt file
+Exports query result into a text file
 /copy (query ) to 'path/text_formate.txt' DELIMITER '|';
-it import the data from text file but the condition is if existing table structure.
+
+Imports data from text file into table if existing table structure.
 \copy <table_name> from 'path from file/text_formate.txt' DELIMITER '|';
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -48,8 +49,10 @@ it import the data from text file but the condition is if existing table structu
 
 Binary formate:-
 ---------------
-
-
+Stores data in binary form (not human-readable)
+\copy (SELECT * FROM econnect_album_photos) 
+TO '/tmp/data.bin' 
+BINARY;
 
 
 
