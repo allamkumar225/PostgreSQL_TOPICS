@@ -1,3 +1,11 @@
+1. Default format is TEXT
+If you don’t specify CSV or BINARY, it uses TEXT format by default.
+2. HEADER option (only for CSV)
+In TEXT format, usually no HEADER is used.
+FOR IMPORT DATA 
+It imports data from a text file into a table. The table must already exist and the file structure must match the table structure.
+
+
 \copy → copy
 (executed query )
 to → to
