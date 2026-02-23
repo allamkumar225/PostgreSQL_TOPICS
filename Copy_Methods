@@ -1,1 +1,2 @@
-
+to copy from databse to linux terminal by using csv(common separete value) method
+\copy (select * from econnect_album_photos) to '/var/lib/pgsql/copy.csv' DELIMITER ',' csv HEADER;
