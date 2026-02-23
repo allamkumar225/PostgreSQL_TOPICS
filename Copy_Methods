@@ -1,2 +1,4 @@
 to copy from databse to linux terminal by using csv(common separete value) method
+
+<-recommended definataion-> This command exports the result of a query into a CSV file.
 \copy (select * from econnect_album_photos) to '/var/lib/pgsql/copy.csv' DELIMITER ',' csv HEADER;
