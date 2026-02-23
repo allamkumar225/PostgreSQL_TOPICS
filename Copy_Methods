@@ -1,3 +1,17 @@
+1. CSV Format (Most Common)
+Exports data as comma-separated values.
+/copy (select * from tables) to 'path/csv' DELIMITER ',' csv HEADER;
+Use case: Excel, data sharing, reporting
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 to copy from databse to linux terminal by using csv(common separete value) method
 
 <-recommended definataion-> This command exports the result of a query into a CSV file.
