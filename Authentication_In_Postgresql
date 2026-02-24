@@ -1,1 +1,16 @@
-Authentication
+Authentication method in postgresql administration
+
+
+ local         DATABASE  USER IP_ADDRESS METHOD  [OPTIONS]
+ host          DATABASE  USER  ADDRESS  METHOD  [OPTIONS]
+ hostssl       DATABASE  USER  ADDRESS  METHOD  [OPTIONS]
+ hostnossl     DATABASE  USER  ADDRESS  METHOD  [OPTIONS]
+ hostgssenc    DATABASE  USER  ADDRESS  METHOD  [OPTIONS]
+ hostnogssenc  DATABASE  USER  ADDRESS  METHOD  [OPTIONS]
+pg_hba.conf = Host-Based Authentication Configuration file
+It displays the location (path) of the Host-Based Authentication file used by PostgreSQL.
+show hba_file;
+              hba_file              
+------------------------------------
+ /var/lib/pgsql/17/data/pg_hba.conf
+
