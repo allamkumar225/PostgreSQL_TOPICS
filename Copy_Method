@@ -1,0 +1,8 @@
+copy the data in csv formate with large query in outside of database.
+
+psql -U <user_name> -d <database_name> -f <file_name_in_terminal> > file_name.csv
+this is used in PostgreSQL (psql command-line tool) to execute SQL commands from a file and redirect the output to a CSV file.
+
+//> is use to copy the data and clear the data 
+with empty before greater than symbol this will erase the file
+before cmd and use greater than symbol copy the data from the query and store the data//
