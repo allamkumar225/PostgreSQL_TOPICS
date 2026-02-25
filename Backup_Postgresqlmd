@@ -1,3 +1,23 @@
 # PostgreSQL_TOPICS
-physical backup
-logical backup
+1. Object-Level Backup --> Backup of specific database objects/ individual objects.
+Tables backup
+Materialized View Backup
+Functions backup
+Views backup
+Indexes backup
+Sequence Backup
+Trigger Backup
+
+2. Schema-Level Backup -> backup of complete schema
+Single schema backup
+multiple schema backup
+schema structure only backup
+schema data onlly backup
+
+3. Table-level Backup -> backup of specific tables
+Single Table Backup
+Multiple Table Backup
+Table Structure Only
+Table Data Only
+Table with Constraints
+Table with Indexes
