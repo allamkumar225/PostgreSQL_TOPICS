@@ -1,27 +1,27 @@
 types of backup we use in postgresql and restore of backups types and methods and with include options.....
-1. Logical Backup
+1. Logical Backup (SQL dump using pg_dump)
 --> Plain SQL Backup
 --> Custom Formate Backup
 --> Directory Formate Backup
 --> Tar Formate Backup
 
-2. Physical Backup
+2. Physical Backup (copy of data files)
 --> File System Backup
 --> Base Backup
 
-3. Full backup --> entire database (can be logical or physical)
+3. Full backup(entire database) --> entire database (can be logical or physical)
 
-4. Incremental Backup --> Backup only changes since last backup
+4. Incremental Backup(changes only) --> Backup only changes since last backup
 
-5. Differential Backup --> Backup changes since last full backup
+5. Differential Backup(changes since full) --> Backup changes since last full backup
 
-6. Continuous Archiving(WAL backup) --> Uses Write-Ahead Log(WAL) files, and Helps in Point-In-Time Recovery (PITR)
+6. Continuous Archiving(WAL backup (log-based backup)) --> Uses Write-Ahead Log(WAL) files, and Helps in Point-In-Time Recovery (PITR)
 
-7. Point-In-Time Recovery (PITR) / continous backup --> Restore database to a specific time 
+7. Point-In-Time Recovery (PITR) / continous backup(restore specific time) --> Restore database to a specific time 
    combination of Base backup and WAL archiving.
 
 8. Snapshot Backup --> Uses storage-level snapshots like LVM.
 
-9. Hot Backup --> backup taken while database is running
+9. Hot Backup (DB running) --> backup taken while database is running
 
-10. cold Backup --> Backup taken when database is stopped
+10. cold Backup (DB stopped)--> Backup taken when database is stopped
