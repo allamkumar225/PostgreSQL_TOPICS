@@ -1,0 +1,14 @@
+Streaming Replication Types use in postgresql :-
+
+
+Asynchronous Replication
+Synchronous Replication
+Replication Slot (with / without)
+Streaming Replication (real-time)
+Log Shipping (restore_command based)
+Hot Standby
+Warm Standby
+Cascading Replication
+Physical Replication
+Logical Replication
+SR to LR Replication
