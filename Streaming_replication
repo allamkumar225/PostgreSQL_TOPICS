@@ -1,1 +1,31 @@
+what is streaming replication ?
+SR is copy the data from primary server to standby server continous
+in real time we called has standby is called as mirror image of primary server.
+(or)
+---> Streaming replication is a process where WAL (Write Ahead Log) data is continuously streamed from the primary server to one or more standby servers to keep them synchronized in near real-time.
+--->In streaming replication, the primary server does not copy full data files; instead, it sends WAL records (changes) to the standby server, which replays them to keep data synchronized.
+if full data is copied every time:
+❌ Slow
+❌ High network usage
+❌ Not scalable
+So PostgreSQL uses WAL-based replication
+
+Used for:-
+---------
+1. High Availability:- always access
+High Availability means the database is always accessible even if the primary server fails.
+(I) If primary (Kumar) goes down
+(II) Standby (Amar) can be promoted
+(III) Application continues working
+Streaming replication provides high availability by maintaining a standby server that can take over if the primary fails.
+2. Disaster Recovery:- easy to recover data
+Disaster Recovery means recovering data in case of failures like crash, hardware failure, or data corruption.
+(I)  Standby has recent copy of data
+(II) Minimal data loss (depends on sync/async)
+(III)Fast recovery
+Streaming replication helps in disaster recovery by maintaining a near real-time copy of data on a standby server.
+3. Read Scaling:- Read Scaling means distributing read queries to standby servers to reduce load on the primary server.
+✔ Primary → Write operations
+✔ Standby → Read operations
+
 
