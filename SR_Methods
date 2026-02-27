@@ -12,3 +12,13 @@ Cascading Replication
 Physical Replication
 Logical Replication
 SR to LR Replication
+======================================================================================================================================================================================================================
+Asynchronous Replication:- by default Sr is asynchronous mode
+primary server doesnot wait for standby and fast performance and possible data lose. 
+example:-- Primary (Master) → sends WAL → Standby (slave)
+              Primary continues without waiting
+
+synchronous Replication:- primary wait for standby conformation and No data lose and slight delay in performance.
+example:- Commit happens only after standby receives WAL.
+
+with replication slot:- 
