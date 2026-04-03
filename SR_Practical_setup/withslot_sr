@@ -15,10 +15,13 @@ step5 :- after changees must restart the service of postgresql
 step6 :- to create user for replication 
 create role rolename with replication login passwor 'password';
 if we want add some superuser, adduser, ... by using alter query :- alter role rolename with superuser 
-step7:- connect the database for create a slot 
+
+this the option we can create while running the basebackup -C -S <slotname>
+// step7:- connect the database for create a slot 
 to create slot query :- select pg_create_physical_replication_slot('slot_name');   
 to check the slot :- select * from pg_replication_Slots;
-to drop the slot :- select pg_drop_repliaction_slot('slot_name')
+to drop the slot :- select pg_drop_repliaction_slot('slot_name') //
+
 step8 :- to check the slot is create or not 
 select * from pg_repliaction_slots;
 step9 :- from standby server just stop the service 
@@ -27,16 +30,23 @@ step11 :- take basebackup from primary server
 pg_basebackup -U roleUser -h ip/localhost -p port -D data_directory_of_standby -P -R -Xs -c fast -v -C -s slotname 
 Example:-  pg_basebackup -U replicator -h 192.248.156.245 -p 5432 -D /var/lib/pgsql/17/data/ -P -R -Xs -c fast -v -C -s sr_slot
 -u username of role to create from create user 
--h hostname/ip address
--p port (optional)
--D data directory
+-h hostname/ip address => 192.168.1.10 (primary)
+-p port (optional) => primary port(5432)
+-D data directory (standy data directory)
 -Fp formate plain (optional)
--Xs :- it means streaming backup method 
--R write-recovery-conf file/ it create standby.signalfile in PostgreSQL.auto.conf and it add primary host entry
+-Xs :- it means streaming backup method (wal method)
+-R write-recovery-conf file/ it create standby.signalfile in PostgreSQL.auto.conf and it add primary host entry (automtically creates standby.singnal connection in auto.conf)
 -c fast :- fast check point
--C create slots -s solt_name
+-C create slots -S solt_name
 -v verbose
 -P progress(backup progress)/ show progress information
-
+==============================================================================================================================================================================================================
 step12:- change the port and give the file permission and start the service 
+
+
+
+
+
+
+
 
