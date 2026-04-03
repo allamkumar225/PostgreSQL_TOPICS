@@ -1,0 +1,42 @@
+wal_sender = wal sender is a background process on primary | read wal and send it to standby server
+Streaming replication with slot
+step1:- check the primary server status if the postgres is running it if.
+step2:- switch to postgres user | su - postgres
+step3:- change the configration file parameters from  => vi /var /lib/pgsql/17/data/postgresql.conf
+1. wal_level = 'replica'  -> replica is only for streaming replication
+2. max_wal_sender = 10(by default)
+3. max_replicat ion_slots = 10(default) 
+4. wal_keep_size = 512MB
+step4:- add standby ip in hba.conf file
+LOCAL    DATABASE         USER            ADDRESS     METHOD
+host  replication role_of_replication_user  ip_a     scram-sha-256
+step5 :- after changees must restart the service of postgresql
+-> if we change from postgresql.conf|postgresql.auto.conf for this only restart the service and any changes from pg_hba.conf then relaod the service from root user oor connect to database and select pg_reload_conf();
+step6 :- to create user for replication 
+create role rolename with replication login passwor 'password';
+if we want add some superuser, adduser, ... by using alter query :- alter role rolename with superuser 
+step7:- connect the database for create a slot 
+to create slot query :- select pg_create_physical_replication_slot('slot_name');   
+to check the slot :- select * from pg_replication_Slots;
+to drop the slot :- select pg_drop_repliaction_slot('slot_name')
+step8 :- to check the slot is create or not 
+select * from pg_repliaction_slots;
+step9 :- from standby server just stop the service 
+step10 :- take backup and remove the data file from standby server
+step11 :- take basebackup from primary server
+pg_basebackup -U roleUser -h ip/localhost -p port -D data_directory_of_standby -P -R -Xs -c fast -v -C -s slotname 
+Example:-  pg_basebackup -U replicator -h 192.248.156.245 -p 5432 -D /var/lib/pgsql/17/data/ -P -R -Xs -c fast -v -C -s sr_slot
+-u username of role to create from create user 
+-h hostname/ip address
+-p port (optional)
+-D data directory
+-Fp formate plain (optional)
+-Xs :- it means streaming backup method 
+-R write-recovery-conf file/ it create standby.signalfile in PostgreSQL.auto.conf and it add primary host entry
+-c fast :- fast check point
+-C create slots -s solt_name
+-v verbose
+-P progress(backup progress)/ show progress information
+
+step12:- change the port and give the file permission and start the service 
+
