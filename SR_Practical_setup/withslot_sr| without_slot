@@ -1,3 +1,10 @@
+os version should be same in primary and standby 
+same postgres version minior version no issue and major version should be same ex:- 7.1 - 7.3 
+equal storage should 
+port enable from server to server 
+listen_address= "*/ip address/hostname(DNS_NAME)"
+
+
 wal_sender = wal sender is a background process on primary | read wal and send it to standby server
 Streaming replication with slot
 step1:- check the primary server status if the postgres is running it if.
