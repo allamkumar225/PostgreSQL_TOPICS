@@ -25,7 +25,7 @@ to drop the slot :- select pg_drop_repliaction_slot('slot_name') //
 step8 :- to check the slot is create or not 
 select * from pg_repliaction_slots;
 step9 :- from standby server just stop the service 
-step10 :- take backup and remove the data file from standby server
+step10 :- take backup and remove the data file from standby server | data directory should be empty
 step11 :- take basebackup from primary server
 pg_basebackup -U roleUser -h ip/localhost -p port -D data_directory_of_standby -P -R -Xs -c fast -v -C -s slotname 
 Example:-  pg_basebackup -U replicator -h 192.248.156.245 -p 5432 -D /var/lib/pgsql/17/data/ -P -R -Xs -c fast -v -C -s sr_slot
