@@ -42,9 +42,23 @@ Example:-  pg_basebackup -U replicator -h 192.248.156.245 -p 5432 -D /var/lib/pg
 -P progress(backup progress)/ show progress information
 ==============================================================================================================================================================================================================
 step12:- change the port and give the file permission and start the service 
+step13:- go to standby server and connect to database
+check the status of standby 
+to check the wal is recieving or not :- select * from pg_stat_wal_recevier;
+to check the sr is in recovery or not :- select * from pg_is_in_recovery();
 
-
-
+==============================================================================================================================================================================================================
+with out_slot:-
+pg_basebackup -U replicator -h 192.248.156.245 -p 5432 -D /var/lib/pgsql/17/data/ -P -R -Xs -c fast 
+just inore the slot_name -C -S
+after execute this basebackup we create slot by manual
+stepp1:- create a slot 
+step2:- add slot name in standby server configration file . in that file we have one parameter called primary_slot_name = 'slotname '
+step3:- restart the cluster| restart the service
+step4:- check the cluster is add or not 
+we can check configration level and database level
+cat /var/lib/pgsql/standby_version/data/postgresql.conf | grep primary_slot_name
+select * from pg_stat_wal_recevier;   -> to check slot name is reflected or not in database level.
 
 
 
