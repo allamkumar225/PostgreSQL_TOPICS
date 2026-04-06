@@ -1,5 +1,13 @@
 cache ----- is call memory but difference uses
-cache:- temporary memory
+cache:- temporary memory :- Cache is a high-speed temporary memory that stores frequently accessed data to improve system performance.
 cache is a temporary memory is used to store frequently used data for fast.
 example :- book's
 we are using books at home for studing purpose example we keep books in cupbord and few books are keep in table for daily read. (then we assume that going and taking daily books from cupboard is slow then we use table to open book is called fast than cache is fast)
+So, cache is used store data in storage then when we need to access data then it will become fast.
+
+
+MEMORY(MAIN WORKING MEMORY) :- Runs programs 
+CACHE(TEMPORARY MEMORY ):- Store frequently used data
+DISK(SSD/HDD):- Stores file.
+SDD-> Solid State Drive
+HDD-> Hard Disk Drive.
