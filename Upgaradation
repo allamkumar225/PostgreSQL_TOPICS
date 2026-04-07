@@ -1,0 +1,57 @@
+in postgresql there are type in upgaradation 
+1. minior version : - upgarde with in the same major version like:- 15.1 to 15.2 , 16.1 to 16.3
+example:- postgresql 16.1 to 16.4
+2. major version:-  upgarde betwwen different versions like 15 to 16  , 16 to 17, 16 to 18
+example:- postgresql 16 to 17, 15 to 18
+
+MINOR VERSION UPGRADATION
+there is same data directtory 
+there is no need to take backup and restore 
+there is no need to upgrade
+--> first method:-just stop the service and install the new binaries and start the service.
+--> second method:- update binaries and restart the service
+--------------------------------------------------------------------------
+MAJOR VERSION UPGRADATION
+it will create new version of postgresql
+it will create new data directory and the data will be migrated 
+use pg_upgarde to update and also in production down time is required
+--------------------------------------------------------------------
+
+# Step 1: Backup
+pg_dumpall -U postgres > full_backup.sql
+# Step 2: Stop old PostgreSQL
+systemctl stop postgresql-15
+# Step 3: Install PostgreSQL 16
+dnf install -y postgresql16-server
+
+# Step 4: Initialize new data directory
+/usr/pgsql-16/bin/initdb -D /var/lib/pgsql/16/data
+# Step 5: Run pg_upgrade
+/usr/pgsql-16/bin/pg_upgrade --old-datadir=/var/lib/pgsql/15/data --new-datadir=/var/lib/pgsql/16/data --old-bindir=/usr/pgsql-15/bin --new-bindir=/usr/pgsql-16/bin
+# Step 6: Start new PostgreSQL
+systemctl start postgresql-16
+# Step 7: Analyze new cluster
+./analyze_new_cluster.sh
+# Step 8: Delete old cluster
+./delete_old_cluster.sh
+------------------------------------------------------------------------
+what understand from this.
+step1 :- take a backup of old database 
+step2 :- stop the old service
+step3 :- install the new postgresql pacakges
+step4 :- initialized data directory
+step5 :- upgarde the old data directory to new data directory
+step6 :- start the service of new database
+step7 :- after executing the pg_upgrade command it will give two outputs.
+step8 :- first one is vaccuming all the utilies to be upgarde
+step9 :- and delete the old data directory script
+
+basic upgaradation steps but recommended :-- example steps:-
+pg_dumpall -v > smapledata.backup
+systemctl stop postgresql15-server
+/usr/pgsql-16/bin/initd -D /var/lib/pgsql/16/data
+execute output of logfile
+/usr /pgsql-15/bin/pg_upgarde -b old_bin_path -B New_bin_path -d old_data_directory -D new_data_directory --check (compatablity check)
+/usr /pgsql-15/bin/pg_upgarde -b old_bin_path -B New_bin_path -d old_data_directory -D new_data_directory  --link
+and it will upgrade and provide two queries
+/usr/pgsql-15/bin/vaccumdb --all --analyzes-in-stages
