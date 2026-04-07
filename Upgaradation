@@ -55,3 +55,33 @@ execute output of logfile
 /usr /pgsql-15/bin/pg_upgarde -b old_bin_path -B New_bin_path -d old_data_directory -D new_data_directory  --link
 and it will upgrade and provide two queries
 /usr/pgsql-15/bin/vaccumdb --all --analyzes-in-stages
+
+==========================================================================================================================================================================================
+options easy way to understand my way
+-b  → old PostgreSQL bin path
+-B  → new PostgreSQL bin path
+-d  → old data directory
+-D  → new data directory
+-c(--check) -> it will check compatability and error 
+-j value(-j 4)-> speed of upgarde and 4 cpu
+-k (--link) - > instead of copy data use hard link it will very fast
+--clone -> same speed has link
+-p -> old port
+-P -> new port
+-U postgres -> run upgrade has user level like postgres
+-v -> show interal logs (verbose mode)
+-r -> keep log files after upgrade to know what happen actually 
+-N -> no sync but fast (not must use this all time)
+--copy -> default copy 
+
+
+
+
+
+
+
+
+
+
+
+
