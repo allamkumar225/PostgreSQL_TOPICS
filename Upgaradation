@@ -16,6 +16,12 @@ it will create new version of postgresql
 it will create new data directory and the data will be migrated 
 use pg_upgarde to update and also in production down time is required
 --------------------------------------------------------------------
+==========================================================================================================================================================================================
+MAJOR VERSION UPGRADATION THREE TYPES
+1. pg_upgarde (but recommended in all cases )
+2. dump and restore
+3. logical replication
+==========================================================================================================================================================================================
 
 # Step 1: Backup
 pg_dumpall -U postgres > full_backup.sql
