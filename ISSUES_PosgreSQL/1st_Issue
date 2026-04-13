@@ -1,0 +1,11 @@
+The command lsof | grep deleted is used in Linux to identify files that have been deleted but are still being held open by a process, often preventing disk space from being freed.
+
+Here's a breakdown:
+-> lsof : Lists open files.
+-> grep deleted: Filters the output to show files marked as deleted.
+
+You might see results like:
+COMMAND    PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+process   1234  user   3u   REG  253,0   123456  789 /path/to/deleted/file (deleted)
+
+This shows a process with PID 1234 has a deleted file open.
