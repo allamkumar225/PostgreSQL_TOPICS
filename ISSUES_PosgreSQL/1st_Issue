@@ -1,4 +1,9 @@
-The command lsof | grep deleted is used in Linux to identify files that have been deleted but are still being held open by a process, often preventing disk space from being freed.
+storage level issue 
+-> the storage is full reach 100% but the data directory is using 35G  but in the disk is 500GB here why the storage is used ???
+in postgres some file are deleted from local but the storage is consume the space then we use this cmd
+
+The command lsof | grep deleted
+it is used in Linux to identify files that have been deleted but are still being held open by a process, often preventing disk space from being freed.
 
 Here's a breakdown:
 -> lsof : Lists open files.
