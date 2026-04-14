@@ -1,0 +1,9 @@
+Instance (Server / Process)
+   ↓
+Cluster (Data Directory)
+   ↓
+Database
+   ↓
+Schema
+   ↓
+Objects (Tables, Views, Indexes, Sequences, Functions, etc.)
