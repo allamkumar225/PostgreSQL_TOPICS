@@ -1,0 +1,51 @@
+PostgreSQL Server
+│
+├── Cluster
+│     │
+│     ├── Database
+│     │      │
+│     │      ├── Schema
+│     │      │      │
+│     │      │      ├── Tables
+│     │      │      │      │
+│     │      │      │      ├── Rows (Tuples)
+│     │      │      │      │      │
+│     │      │      │      │      ├── Columns
+│     │      │      │      │      │      │
+│     │      │      │      │      │      └── Data Types
+│     │      │      │      │      │             ├── INTEGER
+│     │      │      │      │      │             ├── VARCHAR
+│     │      │      │      │      │             ├── BOOLEAN
+│     │      │      │      │      │             ├── DATE
+│     │      │      │      │      │             └── JSONB
+│     │      │      │      │
+│     │      │      │      ├── Constraints
+│     │      │      │      ├── Indexes
+│     │      │      │      ├── Sequences
+│     │      │      │      ├── Views
+│     │      │      │      ├── Materialized Views
+│     │      │      │      ├── Functions
+│     │      │      │      ├── Procedures
+│     │      │      │      └── Triggers
+│     │      │      │
+│     │      │      ├── Types
+│     │      │      ├── Operators
+│     │      │      └── Extensions
+│     │      │
+│     │      ├── Users/Roles
+│     │      ├── Tablespaces
+│     │      └── Transactions
+│     │
+│     ├── WAL Files
+│     ├── Background Processes
+│     └── Shared Memory
+│
+├── Replication
+│     ├── Primary Server
+│     ├── Standby Server
+│     └── WAL Sender/Receiver
+│
+└── Storage
+      ├── Data Files
+      ├── TOAST
+      └── FSM / VM
