@@ -1,0 +1,8 @@
+ANALYZE → Collects table statistics and updates pg_stats.
+this collects the statistics about the table data and store in ssytem catlog table pg_stats
+select * from pg_stats;
+partiicular table to verify :- select * from pg_stats where colum_name='tabl_name';
+
+
+EXPLAIN → Shows the estimated query execution plan.
+EXPLAIN ANALYZE → Executes the query and shows the actual execution plan, rows processed, and execution time.
