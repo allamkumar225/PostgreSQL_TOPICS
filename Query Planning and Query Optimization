@@ -5,4 +5,5 @@ partiicular table to verify :- select * from pg_stats where colum_name='tabl_nam
 
 
 EXPLAIN → Shows the estimated query execution plan.
+
 EXPLAIN ANALYZE → Executes the query and shows the actual execution plan, rows processed, and execution time.
