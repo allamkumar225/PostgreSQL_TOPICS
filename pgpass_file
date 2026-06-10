@@ -1,0 +1,15 @@
+.pgpass file:-  is used to store database securely store. so the postgresql tools can connect  without asking password for every time.
+location of this file :- 
+In linux:- /home/postgres/.pgpass | /root/.pgpass
+in windows:-APPDATA\postgresql\pgpass.conf
+formate of file stores :- hostname:port:databasename:username:password
+ex:- 10.10.10.10:5432:kumar_db:kumar_user:password
+when use any host,any port, any db then use wildcard like (*)
+password required for this file :- chmod -R 600 .pgpass -> readwrite
+
+
+.pgpass: 
+this postgresql password file is used to store database login crediential securly.
+allowing postgresql client utility to connect without promoting password.
+
+postgresql client utility that support: psql, pg_dump, pg_restore, pg_dumpall, pg_basebackup, createdb, dropdb, createuser, dropuser, vaccumdb, reindexdb, clusterdb
