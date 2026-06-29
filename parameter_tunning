@@ -33,3 +33,8 @@ examples:-
 how to set shared_buffer = total RAM * 25%
 IF RAM IS 128GB Then = 128 *25% = 32GB ===> shared_buffer = 32GB  After changing this parameter required to restart the service.
 how to check this parameter :- show shared_buffer; | cat /var/lib/pgsql/18/data/postgresql.conf | grep shared_buffer
+
+How long does a page stay in shared_buffers?
+-->A data page does not stay in shared_buffers for a fixed amount of time. It remains in memory until PostgreSQL needs the buffer space for other pages. 
+Frequently accessed pages tend to remain in memory, while less frequently used pages are eventually replaced by newer pages when the buffer cache becomes full.
+
