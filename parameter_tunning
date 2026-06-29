@@ -1,3 +1,8 @@
+Q: Which memory parameters do you tune in production?
+-->"In production, I mainly tune shared_buffers, work_mem, maintenance_work_mem, effective_cache_size, wal_buffers, temp_buffers, autovacuum_work_mem, and logical_decoding_work_mem.
+The exact values depend on the server RAM, workload (OLTP/OLAP), concurrent users, and database size.
+After deployment, I monitor memory usage, cache hit ratio, query performance, and autovacuum activity, and then fine-tune these parameters based on the workload."
+
 Shared_buffer:-
 Suppose a user runs a query. PostgreSQL first checks whether the required data page is available in shared_buffers (memory).
 If it is available (cache hit), PostgreSQL returns the result directly from memory.
