@@ -1,0 +1,24 @@
+Shared_buffer:-
+Suppose a user runs a query. PostgreSQL first checks whether the required data page is available in shared_buffers (memory).
+If it is available (cache hit), PostgreSQL returns the result directly from memory.
+If it is not available (cache miss), PostgreSQL reads the required data page from the disk, stores it in shared_buffers, and then returns the result to the user.
+If the same query or another query requires the same data page again, PostgreSQL serves it directly from memory instead of reading it from the disk again.
+By default, PostgreSQL reads and stores data in pages of 8 KB.
+Flow of query :--
+                Query
+                  │
+                  ▼
+         Check shared_buffers
+                  │
+          ┌───────┴────────┐
+          │                │
+     Cache Hit        Cache Miss
+          │                │
+          ▼                ▼
+ Return Data         Read from Disk
+ from Memory               │
+                           ▼
+              Store Data in shared_buffers
+                           │
+                           ▼
+                    Return Data to User
