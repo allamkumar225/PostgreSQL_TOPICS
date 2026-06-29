@@ -22,3 +22,14 @@ Flow of query :--
                            │
                            ▼
                     Return Data to User
+
+Interview_Version:-
+When a user runs a query, PostgreSQL first checks shared_buffers.
+If the required data page is already in memory, it returns the result from memory.
+If the data page is not in memory, PostgreSQL reads it from the disk, stores it in shared_buffers, and then returns the result.
+If the user runs the same query again, PostgreSQL can return the data directly from memory, which is much faster. PostgreSQL stores data in pages, and the default page size is 8 KB.
+
+examples:-
+how to set shared_buffer = total RAM * 25%
+IF RAM IS 128GB Then = 128 *25% = 32GB ===> shared_buffer = 32GB  After changing this parameter required to restart the service.
+how to check this parameter :- show shared_buffer; | cat /var/lib/pgsql/18/data/postgresql.conf | grep shared_buffer
